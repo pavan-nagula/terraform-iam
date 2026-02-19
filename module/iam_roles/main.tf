@@ -30,7 +30,7 @@ data "aws_iam_policy_document" "trust_ec2_lambda" {
 
 # 2) ROLE: defining the role and attaching the trust policy
 resource "aws_iam_role" "test_role" {
-  name               = "test_role"
+  name               = var.role_name
   assume_role_policy = data.aws_iam_policy_document.trust_ec2_lambda.json
 
   #   # Terraform's "jsonencode" function converts a Terraform expression result to valid JSON syntax.
